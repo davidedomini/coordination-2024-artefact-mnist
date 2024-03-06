@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+
+    prepare:
+        image: alpine:3.18.3
+        volumes:
+            - .:/experiment:rw
+            - ./scripts:/scripts:rw
+        entrypoint: /bin/sh -c
+        command: scripts/create-folders.sh
+
+#     learning-FBFL:
+#         ...
+#
+#     learning-FL:
+#
+    clean-results:
+        depends_on:
+            prepare:
+                condition: service_completed_successfully
+        image: danysk/kotlin:1.9.22-jdk18
+
+        volumes:
+            - .:/experiment:rw
+            - ./scripts:/scripts:rw
+            - ./data:/data
+            - ./results:/results
+        #entrypoint: /bin/sh -c
+        command: scripts/clean-results.kts
+    # charts:
+    #     ...
