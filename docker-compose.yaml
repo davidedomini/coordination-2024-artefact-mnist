@@ -37,5 +37,5 @@ services:
             dockerfile: ./docker/charts/Dockerfile
             context: .
         volumes:
-            - ./data:/experiment/data
-            - ./charts:/experiment/charts
+            - ./data:/experiment/data:rw
+            - ./charts:/experiment/charts:rw
