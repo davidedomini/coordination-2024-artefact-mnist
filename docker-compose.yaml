@@ -15,18 +15,27 @@ services:
 #
 #     learning-FL:
 #
+
     clean-results:
         depends_on:
             prepare:
                 condition: service_completed_successfully
         image: danysk/kotlin:1.9.22-jdk18
-
         volumes:
             - .:/experiment:rw
             - ./scripts:/scripts:rw
             - ./data:/data
             - ./results:/results
-        #entrypoint: /bin/sh -c
         command: scripts/clean-results.kts
-    # charts:
-    #     ...
+
+    charts:
+        depends_on:
+            clean-results:
+                condition: service_completed_successfully
+        image: davidedomini/plotter
+        build:
+            dockerfile: ./docker/charts/Dockerfile
+            context: .
+        volumes:
+            - ./data:/experiment/data
+            - ./charts:/experiment/charts
