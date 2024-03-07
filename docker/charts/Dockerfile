@@ -5,4 +5,4 @@ COPY plotter.py ./
 COPY requirements.txt ./
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
-CMD python plotter.py
+CMD python plotter.py mnist && python plotter.py fashion
