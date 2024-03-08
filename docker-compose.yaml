@@ -10,15 +10,35 @@ services:
         entrypoint: /bin/sh -c
         command: scripts/create-folders.sh
 
-#     learning-FBFL:
-#         ...
-#
-#     learning-FL:
-#
+    learning-FBFL-MNIST:
+        depends_on:
+            prepare:
+                condition: service_completed_successfully
+        image: davidedomini99/experiment-fbfl-mnist
+        volumes:
+            - ./results:/experiment/results:rw
+
+    learning-FBFL-Fashion:
+        depends_on:
+            prepare:
+                condition: service_completed_successfully
+        image: davidedomini99/experiment-fbfl-fashion
+        volumes:
+            - ./results:/experiment/results:rw
+
+    learning-FL:
+        depends_on:
+            prepare:
+                condition: service_completed_successfully
+        image: davidedomini99/experiment-cfl-mnist
+        volumes:
+            - ./data:/experiment/data:rw
 
     clean-results:
         depends_on:
             prepare:
+                condition: service_completed_successfully
+            learning-FBFL-MNIST:
                 condition: service_completed_successfully
         image: danysk/kotlin:1.9.22-jdk18
         volumes:
