@@ -40,6 +40,8 @@ services:
                 condition: service_completed_successfully
             learning-FBFL-MNIST:
                 condition: service_completed_successfully
+            learning-FBFL-Fashion:
+                condition: service_completed_successfully
         image: danysk/kotlin:1.9.22-jdk18
         volumes:
             - .:/experiment:rw
