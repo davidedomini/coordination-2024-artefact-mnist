@@ -8,7 +8,7 @@ To reproduce the experiments, the following steps are needed:
 - Clone this repository: `git clone git@github.com:davidedomini/coordination-2024-artefact-mnist.git`
 - Move inside the repository;
 - Execute the command: `docker compose up `
-- Since reproducing all the learning steps could be very time consuming (~5 hours) on a normal machine we already provided the data exported from the learning. In this way it is possible to regenerate only the charts executing the following command: `docker compose run --no-deps charts`
+- Since reproducing all the learning steps could be very time consuming (~3 hours) on a normal machine we already provided the data exported from the learning. In this way it is possible to regenerate only the charts executing the following command: `docker compose run --no-deps charts`
 
 ## Authors:
 - [Davide Domini](mailto:davide.domini@unibo.it)
