@@ -1,4 +1,4 @@
-# coordination-2024-artifact
+# coordination-2024-artefact
 
 This repository contains the artefact associated with the regular paper entitled "Field-based Coordination for Federated Learning" and submitted at [COORDINATION'24](https://www.discotec.org/2024/coordination.html). More specifically, this artefact can be used to reproduce the experiments illustrated in the paper and related to MNIST and Fashion MNIST datasets.
 
