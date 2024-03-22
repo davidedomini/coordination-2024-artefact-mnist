@@ -54,6 +54,8 @@ services:
         depends_on:
             clean-results:
                 condition: service_completed_successfully
+            learning-FL:
+                condition: service_completed_successfully
         image: davidedomini/plotter
         build:
             dockerfile: ./docker/charts/Dockerfile
